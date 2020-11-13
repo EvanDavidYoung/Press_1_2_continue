@@ -1,10 +1,4 @@
-Mac: brew install portaudio
-
-Activate Envelope on Linux:
+If on mac: brew install portaudio
+Activate Envelope:
 source venv/Scripts/activate
-
-On Windows: 
-venv/Scripts/activate
-
-
 

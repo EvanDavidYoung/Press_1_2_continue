@@ -16,19 +16,20 @@ if __name__ == '__main__':
     # import speech_recognition as sr 
     import speech_recognition as sr
     r = sr.Recognizer()
-    sample_audio = sr.AudioFile('TestFile/test.wav')
-    with sample_audio as audio_file:
-        audio_content = r.record(audio_file)
-    print(type(audio_content))
-    print(r.recognize_google(audio_content))
+    # sample_audio = sr.AudioFile('TestFile/test.wav')
+    # with sample_audio as audio_file:
+    #     audio_content = r.record(audio_file)
+    # print(type(audio_content))
+    # print(r.recognize_google(audio_content))
 
-    # with sr.Microphone() as source:                # use the default microphone as the audio source
-    #     audio = r.listen(source)                   # listen for the first phrase and extract it into audio data
+    with sr.Microphone() as source:                # use the default microphone as the audio source
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source)                   # listen for the first phrase and extract it into audio data
 
-    # try:
-    #     print("You said " + r.recognize(audio))    # recognize speech using Google Speech Recognition
-    # except LookupError:                            # speech is unintelligible
-    #     print("Could not understand audio")
+    try:
+        print("You said " + r.recognize_google(audio))    # recognize speech using Google Speech Recognition
+    except LookupError:                            # speech is unintelligible
+        print("Could not understand audio")
 
     # r = sr.Recognizer()
     # mic = sr.Microphone()
