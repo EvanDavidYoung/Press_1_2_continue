@@ -1,3 +1,4 @@
+from decipher import *
 # coding=utf-8
 # This is a sample Python script.
 
@@ -40,5 +41,11 @@ if __name__ == '__main__':
 
     #     print("Converting Speech to Text...")
     #     print("You said: " + r.recognize_google(audio))
+
+
+print(decipher("Hi I just need a Prescription but for tires in the auto department"))
+
+
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
