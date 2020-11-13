@@ -1,3 +1,4 @@
+from decipher import *
 # coding=utf-8
 # This is a sample Python script.
 
@@ -13,5 +14,11 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('PyCharm')
+
+
+print(decipher("Hi I just need a Prescription but for tires in the auto department"))
+
+
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
