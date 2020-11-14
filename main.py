@@ -1,4 +1,7 @@
 from decipher import *
+import speech_recognition as sr	
+# import pyttsx3
+
 # coding=utf-8
 # This is a sample Python script.
 
@@ -13,40 +16,44 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # import speech_recognition as sr 
-    import speech_recognition as sr
-    r = sr.Recognizer()
-    # sample_audio = sr.AudioFile('TestFile/test.wav')
-    # with sample_audio as audio_file:
-    #     audio_content = r.record(audio_file)
-    # print(type(audio_content))
-    # print(r.recognize_google(audio_content))
-
-    with sr.Microphone() as source:                # use the default microphone as the audio source
-        r.adjust_for_ambient_noise(source)
-        audio = r.listen(source)                   # listen for the first phrase and extract it into audio data
-
-    try:
-        print("You said " + r.recognize_google(audio))    # recognize speech using Google Speech Recognition
-    except LookupError:                            # speech is unintelligible
-        print("Could not understand audio")
-
-    # r = sr.Recognizer()
-    # mic = sr.Microphone()
-    
-    # with mic as audio_file:
-    #     print("Speak Please")
-
-    #     r.adjust_for_ambient_noise(audio_file)
-    #     audio = r.listen(audio_file)
-
-    #     print("Converting Speech to Text...")
-    #     print("You said: " + r.recognize_google(audio))
+	# creating recognizer
+	r = sr.Recognizer()
+	# creating TTS engine 
+	# engine = ppyttsx3.init()
 
 
-print(decipher("Hi I just need a Prescription but for tires in the auto department"))
+	with sr.Microphone() as source:                # use the default microphone as the audio source
+		r.adjust_for_ambient_noise(source)
+		print('working....')
+		# engine.say("Hi, welcome to Costco. In a couple of words, please share how I can help you today. If you would prefer to use the keypress menu, press 2. Para español, oprima nueve.")
+		# engine.runAndWait()
+		audio = r.listen(source, timeout=10.0)                   # listen for the first phrase and extract it into audio data
+	try:
+		text = r.recognize_google(audio)
+		print(text)    # recognize speech using Google Speech Recognition
+		print(decipher(text))
+	except LookupError:                            # speech is unintelligible
+		print("Could not understand audio")
+	# r = sr.Recognizer()
+	# mic = sr.Microphone()
+
+	# with mic as audio_file:
+	#     print("Speak Please")
+
+	#     r.adjust_for_ambient_noise(audio_file)
+	#     audio = r.listen(audio_file)
+
+	#     print("Converting Speech to Text...")
+	#     print("You said: " + r.recognize_google(audio))
+
+
+	# print(decipher("Hi I just need a Prescription but for tires in the auto department"))
 
 
 
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+	# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+# I need to order a glasses prescription 
+# I want to get new tires 
+# I want to print pictures

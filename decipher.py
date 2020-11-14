@@ -1,5 +1,3 @@
-
-
 def decipher(s):
     # split string into array
     words_array = s.split()
@@ -18,10 +16,6 @@ def decipher(s):
 
         if word in OPTICAL:
             count_dict["OPTICAL"] += 1
-
-        elif word in PHARMACY:
-            count_dict["PHARMACY"]  += 1
-
         elif word in AUTOMOTIVE:
             count_dict["AUTOMOTIVE"]  += 1
 
@@ -38,7 +32,7 @@ def decipher(s):
     # if the highest count is zero, return not found
     if count_dict[chosen_category] == 0:
         return "NOTFOUND"
-
+    print(count_dict)
     return chosen_category
 
 
@@ -53,17 +47,17 @@ def clean_string(s):
 
 
 OPTICAL = {
+"contact",
 "contacts",
 "eye",
 "glasses",
 "checkup",
 "optometrist",
-"optical"
+"optical",
+"prescription",
+"lense",
+"lenses",
 }
-
-PHARMACY = {
-    "prescription"
-    }
 
 AUTOMOTIVE = {
 "automotive",
@@ -74,12 +68,14 @@ AUTOMOTIVE = {
 }
 
 MEMBERSHIP = {
-    
-    "membership",
-     "renew"
-     }
-
+"membership",
+"renew"
+}
 
 PRINTING = {
-    "print", "printing", "photo"
+"print", 
+"printing", 
+"photo",
+"pictures",
+"photos"
 }
